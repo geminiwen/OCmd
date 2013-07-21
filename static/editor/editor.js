@@ -314,6 +314,7 @@ new function($) {
             // Load awesome font to button
             $('#wmd-bold-button > span').addClass('icon-bold muted');
             $('#wmd-italic-button > span').addClass('icon-italic muted');
+            $('#wmd-save-button > span').addClass('icon-save muted');
             $('#wmd-link-button > span').addClass('icon-link muted');
             $('#wmd-quote-button > span').addClass('icon-quote-left muted');
             $('#wmd-code-button > span').addClass('icon-code muted');

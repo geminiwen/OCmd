@@ -1470,7 +1470,7 @@
             var i = 1;
             buttons.bold = makeButton("wmd-bold-button", getString("bold"), "0px", bindCommand("doBold"));
             buttons.italic = makeButton("wmd-italic-button", getString("italic"), "-20px", bindCommand("doItalic"));
-
+            buttons.save = makeButton("wmd-save-button", getString("save"), "0px", bindCommand("doSave"));
             buttons.link = makeButton("wmd-link-button", getString("link"), "-40px", bindCommand(function (chunk, postProcessing) {
                 return this.doLinkOrImage(chunk, postProcessing, false);
             }));
@@ -1568,6 +1568,33 @@
     commandProto.doItalic = function (chunk, postProcessing) {
         return this.doBorI(chunk, postProcessing, 1, this.getString("italicexample"));
     };
+
+    commandProto.doSave = function( chunk, postProcessing ) {
+        var html = $('#wmd-preview').html();
+        var fs = require("fs-extra");
+        var elem = $('<input type="file" nwdirectory>');
+        elem.click();
+        elem.on("change",function(e){
+            var path = e.currentTarget.files[0].path;
+            path += "/ocmd-generate/";
+            fs.mkdirsSync(path);
+            var templatePath = "static/template";
+            var fileList = fs.readdirSync(templatePath);
+            var EX_REG = /\.css|\.html/;
+            $(fileList).each(function(i,e){
+                if(EX_REG.test(e)) 
+                {
+                    var content = fs.readFileSync(templatePath+"/"+e,"utf8");
+                    if( e.indexOf("html") ) {
+                        content = content.replace(/<!--Content-->/,html);
+                    }
+                    fs.writeFile(path+e,content);   
+
+                }
+            });
+        });
+        return true;
+    }
 
     // chunk: The selected region that will be enclosed with */**
     // nStars: 1 for italics, 2 for bold

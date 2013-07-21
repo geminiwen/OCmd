@@ -1,11 +1,14 @@
 {
-	"name": "mdeditor",
+	"name": "OCmd",
 	"version": "0.0.1",
 	"keywords": ["markdown","editor"],
 	"main": "index.html",
 	"window": {
-		"toolbar": true,
+		"toolbar": false,
 		"width": 965,
 		"height": 654
-	}
+	},
+	"dependencies": {
+        "fs-extra": "~0.6.1"
+    }
 }
