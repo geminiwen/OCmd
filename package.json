@@ -1,0 +1,11 @@
+{
+	"name": "mdeditor",
+	"version": "0.0.1",
+	"keywords": ["markdown","editor"],
+	"main": "index.html",
+	"window": {
+		"toolbar": true,
+		"width": 965,
+		"height": 654
+	}
+}
