@@ -442,6 +442,31 @@ new function($) {
             // theme button handler
             $('#preview-theme-button').on('click', switchSiteTheme);
 
+            $('#preview-save-button').on('click',function(){
+                var html = $('#wmd-preview').html();
+                var fs = require("fs-extra");
+                var elem = $('<input type="file" nwdirectory>');
+                elem.click();
+                elem.on("change",function(e){
+                    var path = e.currentTarget.files[0].path;
+                    path += "/ocmd-generate/";
+                    fs.mkdirsSync(path);
+                    var templatePath = "static/template";
+                    var fileList = fs.readdirSync(templatePath);
+                    var EX_REG = /\.css|\.html/;
+                    $(fileList).each(function(i,e){
+                        if(EX_REG.test(e)) 
+                        {
+                            var content = fs.readFileSync(templatePath+"/"+e,"utf8");
+                            if( e.indexOf("html") ) {
+                                content = content.replace(/<!--Content-->/,html);
+                            }
+                            fs.writeFile(path+e,content);   
+
+                        }
+                    });
+                });
+            })
 
             // test whether the browser support fullscreen.
             if (fullScreenApi.supportsFullScreen) {
