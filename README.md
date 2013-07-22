@@ -8,12 +8,13 @@
 Feature:
  
 1. 跨平台支持（node-webkit）
+2. 支持HTML页面导出功能
 
 <hr />
 
 TODOs：
 
-1. 支持HTML页面导出功能
+
 
 欢迎在[这里](https://github.com/coffeesherk/OCmd/issues/new)提出意见和建议
 
