@@ -19,3 +19,5 @@ Wiki: https://github.com/coffeesherk/OCmd/wiki
 欢迎在[这里](https://github.com/coffeesherk/OCmd/issues/new)提出意见和建议
 
 作者：[Gemini](http://weibo.com/coffeesherk)
+
+邮箱: coffeesherk@gmail.com
