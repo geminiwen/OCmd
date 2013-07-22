@@ -1,3 +1,4 @@
 #mac directory file
 .DS_Store
+.nw
 node_modules/
