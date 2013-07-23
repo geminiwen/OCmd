@@ -517,13 +517,13 @@ new function($) {
                     alert("保存成功！");
                 });
             })
-
+            /*
             $('#preview-close-button').click(function(){
                 if( gui ) {
                     gui.App.closeAllWindows();
                 }
             });
-
+            */
             // test whether the browser support fullscreen.
             if (fullScreenApi.supportsFullScreen) {
                 $('#preview-fullscreen-button').on('click', function() {
@@ -589,7 +589,7 @@ new function($) {
                             }
                             break;
                         case "q":
-                            $('#preview-close-button').click();
+                            //$('#preview-close-button').click();
                             break;
                         case "s":
                             $('#preview-save-button').click();
