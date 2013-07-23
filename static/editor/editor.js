@@ -123,6 +123,16 @@ new function($) {
     
     var cmdMarkdownUrl = 'http://ghosertblog.github.io/mdeditor/';
 
+    var markdownHelp = function () {
+        if( gui ) {
+            gui.Shell.openExternal(cmdMarkdownUrl);
+        } else {
+            var w = window.open(cmdMarkdownUrl);
+            w.isEditablePage = false;  
+        }
+        
+    }
+
     // handle Tab keystroke
     $('#wmd-input').tabHandler();
 
@@ -131,10 +141,6 @@ new function($) {
     // tell the converter to use Markdown Extra for tables, fenced_code_gfm, def_list
     Markdown.Extra.init(converter1, {extensions: ["tables", "fenced_code_gfm", "def_list"], highlighter: "prettify"});
 
-    var markdownHelp = function () {
-        var w = window.open(cmdMarkdownUrl);
-        w.isEditablePage = false;
-    }
     var options = {
         helpButton: { handler: markdownHelp },
         strings: Markdown.local.zh
@@ -166,6 +172,7 @@ new function($) {
             editor1.refreshPreview(true);
         });
     }
+
 
     var scrollLink = getScrollLink(); 
     scrollLink.onLayoutCreated();
