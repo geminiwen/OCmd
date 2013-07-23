@@ -3,6 +3,13 @@ body
     font-family: sans-serif;
 }
 
+#editor-nav-bar,#wmd-button-bar{
+    -webkit-app-region: drag;
+}
+li, a{
+    -webkit-app-region: no-drag;
+}
+
 .theme-black {
 	background-color: #444444;
     color: #D6DBDF;
@@ -190,6 +197,7 @@ code, pre {
 	margin-top: 10px;
 	padding: 0px;  
 	height: auto;
+    line-height: 25px;
 }
 
 /*

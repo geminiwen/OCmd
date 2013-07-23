@@ -505,6 +505,12 @@ new function($) {
                 });
             })
 
+            $('#preview-close-button').click(function(){
+                if( gui ) {
+                    gui.App.closeAllWindows();
+                }
+            });
+
             // test whether the browser support fullscreen.
             if (fullScreenApi.supportsFullScreen) {
                 $('#preview-fullscreen-button').on('click', function() {
@@ -561,6 +567,19 @@ new function($) {
                                     switchNormalModeFromFullReaderMode();
                                 }
                             }
+                            break;
+                        case "f":
+                            if(fullScreenApi.isFullScreen()) {
+                                fullScreenApi.cancelFullScreen();
+                            } else {
+                                fullScreenApi.requestFullScreen();
+                            }
+                            break;
+                        case "q":
+                            $('#preview-close-button').click();
+                            break;
+                        case "s":
+                            $('#preview-save-button').click();
                             break;
                         case "j":
                             if (key.altKey) { // 'ctrl + alt + j' for switching site theme.
