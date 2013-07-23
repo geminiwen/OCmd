@@ -6,6 +6,8 @@
 	"author":"Gemini Wen",
 	"lisence":"MIT",
 	"window": {
+		"title": "OCmd 离线Markdown编辑器",
+		"icon": "OCmd_icon.png",
 		"show": false,
 		"toolbar": false,
 		"width": 965,
