@@ -478,6 +478,7 @@ new function($) {
             $('#preview-save-button').on('click',function(){
                 var html = $('#wmd-preview').html();
                 var fs = require("fs-extra");
+                var gui = require("nw.gui");
                 var elem = $('<input type="file" nwdirectory>');
                 elem.click();
                 elem.on("change",function(e){
@@ -487,16 +488,19 @@ new function($) {
                     var templatePath = "static/template";
                     var fileList = fs.readdirSync(templatePath);
                     var EX_REG = /\.css|\.html/;
+                    var htmlFile;
                     $(fileList).each(function(i,e){
                         if(EX_REG.test(e)) 
                         {
                             var content = fs.readFileSync(templatePath+"/"+e,"utf8");
                             if( e.indexOf("html") ) {
                                 content = content.replace(/<!--Content-->/,html);
+                                htmlFile = path+e;
                             }
                             fs.writeFile(path+e,content);   
                         }
                     });
+                    // gui.Shell.showItemInFolder('test.txt');
                     alert("保存成功！");
                 });
             })
