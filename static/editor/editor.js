@@ -120,23 +120,7 @@ new function($) {
 (function () {
     var gui = require("nw.gui");
     var Window;
-    if( gui ) {
-        Window = gui.Window.get();
-        Window.show();
-        window.addEventListener('keydown', function (e) {
-            if (e.keyIdentifier === 'F12') {
-                Window.showDevTools();
-            }
-        });
-        $("body").on("drop",function(e){
-            e.preventDefault();
-            var oe = e.originalEvent;
-
-            //Get files or folders
-            var files = oe.dataTransfer.files;
-            // alert(files);
-        });
-    }
+    
     var cmdMarkdownUrl = 'http://ghosertblog.github.io/mdeditor/';
 
     // handle Tab keystroke
@@ -157,6 +141,31 @@ new function($) {
     };
 
     var editor1 = new Markdown.Editor(converter1, null, options);
+
+    if( gui ) {
+        Window = gui.Window.get();
+        Window.show();
+        window.addEventListener('keydown', function (e) {
+            if (e.keyIdentifier === 'F12') {
+                Window.showDevTools();
+            }
+        });
+        $("body").on("drop",function(e){
+            e.preventDefault();
+            var oe = e.originalEvent;
+
+            //Get files or folders
+            var files = oe.dataTransfer.files;
+            if( files.length == 0 ) return;
+            var file = files[0];
+            var fs = require("fs-extra");
+            var content = fs.readFileSync(file.path,"utf8");
+            content = content.replace(/^\uFEFF/, '');
+            $('#wmd-input').val(content);
+            var e = $.Event( "keydown", { keyCode: 13 });
+            editor1.refreshPreview(true);
+        });
+    }
 
     var scrollLink = getScrollLink(); 
     scrollLink.onLayoutCreated();
@@ -479,9 +488,9 @@ new function($) {
                                 content = content.replace(/<!--Content-->/,html);
                             }
                             fs.writeFile(path+e,content);   
-
                         }
                     });
+                    alert("保存成功！");
                 });
             })
 
