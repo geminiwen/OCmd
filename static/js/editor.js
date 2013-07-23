@@ -166,6 +166,8 @@ new function($) {
                 Window.showDevTools();
             }
         });
+
+        // hack for drag file to body element
         $(document).on("dragover",function(e) {
             e.preventDefault();
         });
