@@ -10,10 +10,9 @@
 		"icon": "OCmd_icon.png",
 		"show": false,
 		"toolbar": false,
-		"frame": false,
 		"width": 965,
 		"height": 654,
-		"resizable": false
+		"resizable": true
 	},
 	"dependencies": {
         "fs-extra": "~0.6.1"
