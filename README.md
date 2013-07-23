@@ -13,6 +13,7 @@ Feature:
 <hr />
 
 TODOs：
+1. 支持文件打开。
 
 Wiki: https://github.com/coffeesherk/OCmd/wiki
 
