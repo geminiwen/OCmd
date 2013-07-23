@@ -204,6 +204,7 @@ new function($) {
         }
 
         // Call onPreviewFinished callbacks when all async preview are finished, make sure sync actions have been ABOVE the line below.
+        /*
         var counter = 0;
         var nbAsyncPreviewCallback = 2; // 1 for waitForImages below and 1 for MathJax below, they are both time consuming task, if only they are both done, begin to caculate md section and scroll bar.
         function tryFinished() {
@@ -211,11 +212,13 @@ new function($) {
                 scrollLink.onPreviewFinished();
             }
         }
+        */
+        scrollLink.onPreviewFinished();
         // We assume images are loading in the preview
-        $("#wmd-preview").waitForImages(tryFinished);
+        // $("#wmd-preview").waitForImages(tryFinished);
         // TODO: could we cache the result to speed up ? This action is slow, especially, when there are multiple LaTeX expression on the page, google solution.
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub,"wmd-preview"]);
-        MathJax.Hub.Queue(tryFinished);
+        // MathJax.Hub.Queue(["Typeset",MathJax.Hub,"wmd-preview"]);
+        // MathJax.Hub.Queue(tryFinished);
 
         if (window.isEditablePage) { // Editing on markdown help page won't change local storage
             var preSaveArticle = $('#wmd-input').val();
