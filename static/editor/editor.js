@@ -128,6 +128,14 @@ new function($) {
                 Window.showDevTools();
             }
         });
+        $("body").on("drop",function(e){
+            e.preventDefault();
+            var oe = e.originalEvent;
+
+            //Get files or folders
+            var files = oe.dataTransfer.files;
+            // alert(files);
+        });
     }
     var cmdMarkdownUrl = 'http://ghosertblog.github.io/mdeditor/';
 
