@@ -296,7 +296,7 @@ new function($) {
 
 
     // load md help doc from server.
-    var mdUrl = 'static/editor/md-help';
+    var mdUrl = 'static/js/md-help';
     var isExternalUrl = false;
     if (window.isEditablePage === undefined) { // if window.isEditablePage is not undefined, means it's markdown help page.
         var keyUrl = '?url=';
