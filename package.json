@@ -5,10 +5,17 @@
 	"main": "index.html",
 	"author":"Gemini Wen",
 	"lisence":"MIT",
+	"single-instance": true,
 	"window": {
+		"show": false,
 		"toolbar": false,
 		"width": 965,
-		"height": 654
+		"height": 654,
+		"min_width": 965,
+		"min_height": 654,
+		"max_width": 965,
+		"max_height": 654,
+		"resizable": false
 	},
 	"dependencies": {
         "fs-extra": "~0.6.1"

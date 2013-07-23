@@ -119,7 +119,16 @@ new function($) {
 
 (function () {
     var gui = require("nw.gui");
-    var Window = gui.Window.get();
+    var Window;
+    if( gui ) {
+        Window = gui.Window.get();
+        Window.show();
+        window.addEventListener('keydown', function (e) {
+            if (e.keyIdentifier === 'F12') {
+                Window.showDevTools();
+            }
+        });
+    }
     var cmdMarkdownUrl = 'http://ghosertblog.github.io/mdeditor/';
 
     // handle Tab keystroke
