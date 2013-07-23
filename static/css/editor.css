@@ -1,6 +1,7 @@
 body 
 { 
     font-family: sans-serif;
+    box-sizing: border-box;
 }
 
 .theme-black {
@@ -74,16 +75,21 @@ code, pre {
 }
 
 #editor-nav-bar {
+    position: relative;
     background-color: #444;
 }
 
 #wmd-button-bar {
+    display: inline-block;
     padding-left: 20px;
     padding-bottom: 5px;
     padding-top: 5px;
 }
 
 #preview-button-bar {
+    position: absolute;
+    top:0px;
+    right: 0px;
     padding-right: 20px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -212,6 +218,16 @@ code, pre {
 	background-color: Silver;
 	display: inline-block; 
 	list-style: none;
+}
+
+.weibo-button {
+    width: 160px;
+    margin-left: 10px;
+    height: 20px;
+    display: inline-block;
+    list-style: none;
+    cursor: pointer;
+    font-size: 17px;
 }
 
 .wmd-button, .preview-button {

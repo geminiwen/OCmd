@@ -166,7 +166,10 @@ new function($) {
                 Window.showDevTools();
             }
         });
-        $("body").on("drop",function(e){
+        $(document).on("dragover",function(e) {
+            e.preventDefault();
+        });
+        $(document).on("drop",function(e){
             e.preventDefault();
             var oe = e.originalEvent;
 
