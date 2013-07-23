@@ -100,7 +100,7 @@ code, pre {
     padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
-    margin-top: 15px;
+    margin-top: 12px;
     margin-bottom: 5px;
     color: #BBB;
     font-size: 18px;
@@ -110,6 +110,10 @@ code, pre {
     font-size: 16px;
     color: #BBB;
     margin-left: 25px;
+}
+
+#article-title-bar #gemini {
+    margin-left: 10px;
 }
 
 #article-title-bar a:hover {
@@ -197,7 +201,7 @@ code, pre {
 	margin-top: 10px;
 	padding: 0px;  
 	height: auto;
-    line-height: 25px;
+    line-height: 27px;
 }
 
 /*

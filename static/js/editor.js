@@ -120,6 +120,16 @@ new function($) {
 (function () {
     var gui = require("nw.gui");
     var Window;
+    if(gui) {
+        $('body').on('click','a',function(){
+            var url = $(this).attr("href");
+            if( url && url !== "" ) {
+               gui.Shell.openExternal(url); 
+            }
+            
+            return false;
+        });
+    }
     
     var cmdMarkdownUrl = 'http://ghosertblog.github.io/mdeditor/';
 
@@ -398,7 +408,7 @@ new function($) {
             function clearAndNewFile() {
                 var answer = confirm('新建文件将会清除当前的文件内容，请确认当前内容已保存');
                 if (answer) {
-                    $('#wmd-input').val('\n\n\n> *本文使用 [Cmd](http://ghosertblog.github.io/mdeditor/ "中文在线 Markdown 编辑器") 编写*');
+                    $('#wmd-input').val('\n\n\n> *本文使用 [OCmd](http://github.com/coffeesherk/OCmd/ "中文在线 Markdown 编辑器") 编写*');
                     $('#wmd-input').setCursorPosition(0);
                     editor1.refreshPreview();
                 }
