@@ -13,7 +13,9 @@ Feature:
 <hr />
 
 TODOs：
-1. 支持文件打开。
+
+1. 支持文件打开
+2. 支持图片输出（插件形式）
 
 Wiki: https://github.com/coffeesherk/OCmd/wiki
 
